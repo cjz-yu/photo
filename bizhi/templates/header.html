@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<header class="header">
+            <div class="container-menu">
+                <nav class="navbar navbar-default yamm">
+                    <div class="container">
+                        <div class="navbar-table">
+                            <div class="navbar-cell">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand" href="{% static 'index.html' %}"><i class="fa fa-hashtag"></i> 目录</a>
+                                    <div class="open-menu">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                                            <span class="sr-only">切换导航</span>
+                                            <span class="fa fa-bars"></span>
+                                        </button>
+                                    </div>
+                                </div><!-- end navbar-header -->
+                            </div><!-- end navbar-cell -->
+                            <div class="navbar-cell stretch">
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                                    <div class="navbar-cell">
+                                        <ul class="nav navbar-nav navbar-center">
+                                            <li><a class="active" href="{% static 'index.html' %}" title="">主页</a></li>
+                                            <li class="dropdown megamenu yamm-half hovermenu"><a href="{% static '#' %}" data-toggle="dropdown" class="dropdown-toggle">特征 <b class="fa fa-angle-down"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                    <div class="yamm-content">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-sm-6">
+                                                                <div class="box">
+                                                                    <ul>
+                                                                        <li><a href="{% static 'page-404.html' %}">404 - 页面找不到</a></li>
+                                                                        <li><a href="{% static 'login.html' %}">登录 & 注册</a></li>
+                                                                        <li><a href="{% static 'faqs.html' %}">FAQS & 支持</a></li>
+                                                                        <li><a href="{% static 'about.html' %}">关于我们</a></li>
+                                                                        <li><a href="{% static 'about.html' %}">关于我们</a></li>
+                                                                        <li><a href="{% static 'contact.html' %}">联系我们</a></li>
+                                                                    </ul>
+                                                                </div><!-- end box -->
+                                                            </div><!-- end col -->
+                                                        </div>
+                                                    </div><!-- end ttmenu-content -->
+                                                    </li>
+                                                </ul>
+                                            </li><!-- end mega menu -->
+                                            <li class="dropdown megamenu yamm-half hovermenu"><a href="{% static '#' %}" data-toggle="dropdown" class="dropdown-toggle">Market <b class="fa fa-angle-down"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                    <div class="yamm-content">
+                                                        <div class="row">
+
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="box">
+                                                                    <h5>User Profile</h5>
+                                                                    <ul>
+                                                                        <li><a href="{% static 'edit-account.html' %}">修改资料</a></li>
+                                                                        <li><a href="{% static 'public-profile.html' %}">公共配置文件</a></li>
+                                                                        <li><a href="{% static 'upload-item.html' %}">上传图片</a></li>
+                                                                        <li><a href="{% static 'downloads.html' %}">下载</a></li>
+                                                                        <li><a href="{% static 'login.html' %}">登录 & 注册</a></li>
+                                                                    </ul>
+                                                                </div><!-- end box -->
+                                                            </div><!-- end col -->
+                                                        </div>
+                                                    </div><!-- end ttmenu-content -->
+                                                    </li>
+                                                </ul>
+                                            </li><!-- end mega menu -->
+                                            <li><a href="{% static 'forum.html' %}" title="">评论</a></li>
+                                            <li><a href="{% static 'contact.html' %}" title="">联系</a></li>
+                                        </ul>
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="dropdown membermenu hovermenu">
+                                                <a href="{% static '#' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'upload/member.png' %}" alt="" class="img-circle"> <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown-header">简况</li>
+                                                    <li><a href="{% static 'edit-account.html' %}">修改资料</a></li>
+                                                    <li><a href="{% static '#' %}">退出登录</a></li>
+                                                    <li><hr></li>
+                                                    <li class="dropdown-header">卖家状态一览表</li>
+                                                    <li><a href="{% static 'public-profile.html' %}">公共配置</a></li>
+                                                    <li><a href="{% static 'sales.html' %}">我的销售</a></li>
+                                                    <li><a href="{% static 'messages.html' %}">留言板</a></li>
+                                                    <li><a href="{% static 'upload-item.html' %}">上传商品</a></li>
+                                                    <li><a href="{% static 'downloads.html' %}">下载</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div><!-- end navbar-cell -->
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- end navbar cell -->
+                        </div><!-- end navbar-table -->
+                    </div><!-- end container fluid -->
+                </nav><!-- end navbar -->
+            </div><!-- end container -->
+        </header>
+<body>
+
+</body>
+</html>

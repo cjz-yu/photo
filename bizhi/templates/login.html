@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+          <form class="form-signin" method="post">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">登录</h2>
+            <div class="login-wrap">
+{#                {{ request.user }}#}
+{#                {{ DEFAULT_MESSAGE_LEVELS }}#}
+                {{ form.username}}
+                {{ form.password}}
+                {{ form.captcha}}
+                <a href="javascript:void(0);"><img id="captcha_img" src="#" ></a>
+                <div class="user-reg">
+                    <a href= "{% url "accounts:register" %}"> 用户注册</a>
+                    <span class="pull-right"> <a href=""> 忘记密码?</a></span>
+                </div>
+                <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
+                <p class="msg"></p>
+                 {% if msg %}
+                 <div class="alert alert-block alert-danger fade in">
+                  <button data-dismiss="alert" class="close close-sm" type="button">
+                      <i class="icon-remove"></i>
+                  </button>
+                  <strong>提醒!</strong> {{ msg }}
+            </div>
+                 {% endif %}
+
+            </div>
+          </form>
+
+{% endblock %}
+{% block load_js %}
+        <script>
+    get_captcha_img();
+    $("#captcha_img").click(get_captcha_img);
+
+    function get_captcha_img() {
+        $.ajax({
+            url: '{% url 'apis:get_captcha' %}',
+            type: 'GET',
+            dataType: 'text',
+            success: function (data) {
+                $('#captcha_img').attr('src', data);
+            }
+        });
+    }
+{#    function check_captcha() {#}
+{#        var captcha_code = $('#id_captcha').val();#}
+{#        if (captcha_code.length == 0){#}
+{#            return false#}
+{#        }#}
+{#        $.ajax({#}
+{#            url: '{% url 'apis:check_captcha' %}',#}
+{#            type: 'GET',#}
+{#            dataType: 'json',#}
+{#            data: {"captcha_code": captcha_code},#}
+{#            success: function (data) {#}
+{#                if(data.code == 400){#}
+{#                     $('.msg').html("验证码错误");#}
+{#                }else{#}
+{#                    $('.msg').html("");#}
+{#                }#}
+{#            }#}
+{#        });#}
+{#    };#}
+
+</script>
+{% endblock %}
+
+
+
+
