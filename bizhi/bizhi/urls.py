@@ -24,11 +24,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^index/$', views.index),
     # url(r'^base/$',views.base),
+    url(r'^picture/',include('apps.picture.urls',namespace="picture") ),
     url(r'^accounts/',include('apps.accounts.urls',namespace="accounts") ),
     url(r'^apis/', include('apps.apis.urls', namespace="apis")),
     url(r'^logtest/$', views.logtest, name="logtest"),
 
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^$', TemplateView.as_view(template_name='index1.html')),
 
 ]
 

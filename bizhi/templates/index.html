@@ -219,327 +219,57 @@
                         </div><!-- end col -->
                     </div><!-- end row -->
                     <div class="row">
+                        {% for contact in contacts %}
                         <div class="col-md-3 col-sm-6">
                             <div class="item-box">
                                 <div class="item-media entry">
-                                    <img src="{% static 'upload/item_01.jpg' %}" alt="" class="img-responsive">
+                                    <img src="{{ contact.picture_url }}" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_01.jpg' %}" class="img-circle" alt=""> 阿曼达</a>
+                                            <a href="{% static 'public-profile.html' %}"><img src="{{ contact.contributor.avator_sor }}" class="img-circle" alt=""> {{ contact.contributor.username }}</a>
                                         </div><!-- end author -->
                                     </div>
                                     <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$21</a></p>
+                                        <p><a href="{% static 'single-item.html' %}" title="">{{ contact.count }}</a></p>
                                     </div>
                                 </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">天气预报</a></h4>
+                                <h4><a href="{% static 'single-item.html' %}">{{ contact.picture_name }}</a></h4>
                                 <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 893</a></small>
                                 <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 12</a></small>
                             </div><!-- end item-box -->
                         </div><!-- end col -->
+                        {% endfor %}
 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_02.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_02.jpg' %}" class="img-circle" alt=""> Bob</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$5</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">谷歌地图收藏</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 221</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 05</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_03.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_03.jpg' %}" class="img-circle" alt=""> 哭泣的玫瑰</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$5</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">播客应用</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 412</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 31</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_04.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_04.jpg' %}" class="img-circle" alt=""> 标志</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$25</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">DJ俱乐部软件</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 123</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 03</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_05.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_05.jpg' %}" class="img-circle" alt=""> John</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$12</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">User Profile App</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 441</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 21</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_06.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_06.jpg' %}" class="img-circle" alt=""> Mark</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$25</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Mail Application</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 31</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 04</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_07.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_07.jpg' %}" class="img-circle" alt=""> Jenny</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Login Box (Custom)</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 1235</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 46</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_08.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_01.jpg' %}" class="img-circle" alt=""> Seden</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$6</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Profile Application</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 125</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 55</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_09.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member.png' %}" class="img-circle" alt=""> Samanta</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Twitter App Re-design</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 223</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 51</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_10.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_02.jpg' %}" class="img-circle" alt=""> Martin</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$21</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Payment Monitor</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 123</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 31</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_11.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member.png' %}" class="img-circle" alt=""> Samanta</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$15</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Showcase Podcast</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 331</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 51</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_12.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_04.jpg' %}" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$33</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Phone Back-Front</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 213</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 12</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_13.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_04.jpg' %}" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Custom Gallery Icon</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 123</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 44</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_16.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member.png' %}" class="img-circle" alt=""> Samanta</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">$23</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">Commission Rate</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 223</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 51</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_14.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_04.jpg' %}" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">10+ Landing Pages</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 33</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 14</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="{% static 'upload/item_15.jpg' %}" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="{% static 'public-profile.html' %}"><img src="{% static 'upload/member_04.jpg' %}" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="{% static 'single-item.html' %}" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="{% static 'single-item.html' %}">22+ Android Logos</a></h4>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 441</a></small>
-                                <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 32</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end content -->
-
+{#{% for contact in contacts %}#}
+    {# Each "contact" is a Contact model object. #}
+{#    {{ contact.full_name|upper }}<br />#}
+{#    ...#}
+{#{% endfor %}#}
                 <div class="content-after text-center boxs">
                     <div class="row">
                         <div class="col-md-12">
                             <nav class="pagination-wrapper">
                                 <ul class="pagination">
-                                    <li><a href="{% static '#' %}">1</a></li>
-                                    <li><a href="{% static '#' %}">2</a></li>
-                                    <li><a href="{% static '#' %}">3</a></li>
-                                    <li><a href="{% static '#' %}">4</a></li>
-                                    <li><a href="{% static '#' %}">5</a></li>
-                                    <li>
-                                        <a href="{% static '#' %}" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
+                                       <span class="step-links">
+                                        {% if contacts.has_previous %}
+                                            <a href="?page={{ contacts.previous_page_number }}">前一页</a>
+                                        {% endif %}
+                                        <span class="current">
+{#                                        <li><a href="{{ contacts.next_page_number }}">5</a></li>#}
+                                            页面 {{ contacts.number }} 到 {{ contacts.paginator.num_pages }}.
+                                        </span>
+
+                                        {% if contacts.has_next %}
+                                            <a href="?page={{ contacts.next_page_number }}">下一页</a>
+                                        {% endif %}
+    </span>
+{#                                    <li>#}
+{#                                        <a href="{% static '#' %}" aria-label="Next">#}
+{#                                            <span aria-hidden="true">&raquo;</span>#}
+{#                                        </a>#}
+{#                                    </li>#}
                                 </ul>
                             </nav>
                         </div>

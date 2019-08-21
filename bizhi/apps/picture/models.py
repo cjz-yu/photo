@@ -13,10 +13,12 @@ class Category(models.Model):
 
 class Picture(models.Model):
     picture_url = models.CharField(max_length=100,verbose_name="图片地址")
-    category = models.ManyToManyField(Category, verbose_name="所属分类")
+    picture_name = models.CharField(max_length=100,verbose_name="图片名字", null=True)
+    category = models.ManyToManyField(Category, verbose_name="所属分类",null=True)
     contributor = models.ForeignKey(User, verbose_name="贡献者", null=True)
     status = models.BooleanField("审核状态", default=False)
     pub_time = models.DateTimeField("入库时间", auto_now_add=True, null=True)
+    count=models.IntegerField("图片浏览数",null=True)
     class Meta:
         verbose_name = "图片表"
         verbose_name_plural = verbose_name
@@ -41,10 +43,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.id}:{self.photo.contributor}"
-
-class Counts(models.Model):
-    photo=models.ForeignKey(Picture,verbose_name="图片")
-    count=models.IntegerField("图片浏览数")
-    class Meta:
-        verbose_name = "浏览表"
-        verbose_name_plural = verbose_name

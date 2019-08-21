@@ -1,4 +1,4 @@
-amqp==1.4.9
+pamqp==1.4.9
 anyjson==0.3.3
 asn1crypto==0.24.0
 attrs==18.2.0
