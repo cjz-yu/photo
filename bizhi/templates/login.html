@@ -1,35 +1,56 @@
 {% extends "base.html" %}
-
 {% block content %}
-          <form class="form-signin" method="post">
-            {% csrf_token %}
-            <h2 class="form-signin-heading">登录</h2>
-            <div class="login-wrap">
-{#                {{ request.user }}#}
-{#                {{ DEFAULT_MESSAGE_LEVELS }}#}
-                {{ form.username}}
-                {{ form.password}}
-                {{ form.captcha}}
-                <a href="javascript:void(0);"><img id="captcha_img" src="#" ></a>
-                <div class="user-reg">
+<div class="content boxs">
+                    <div class="row">
+                                    <div class="container">
+                                        <div class="widget"  style="margin-left: auto;margin-right:auto;width: 400px;height: 600px;">
+                                            <div class="widget-title">
+                                                <h4>Login Account</h4>
+                                            </div><!-- end widget-title -->
+
+                                            <div class="login-form" >
+                                                <form method="post" action="" role="login">
+                                                {% csrf_token %}
+                                                    <div class="form-group">
+                                                        <label>用户名</label>
+                                                        {{ form.username }}
+                                                        <span class="fa fa-user"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                       {{ form.password }}
+                                                        <span class="fa fa-lock"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>验证码</label>
+                                                       {{ form.captcha }}
+                                                                                 <a href="javascript:void(0);"><img id="captcha_img" src="#" ></a>
+
+                                                    </div>
+                                                    <div class="user-reg">
                     <a href= "{% url "accounts:register" %}"> 用户注册</a>
                     <span class="pull-right"> <a href=""> 忘记密码?</a></span>
                 </div>
-                <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
-                <p class="msg"></p>
-                 {% if msg %}
-                 <div class="alert alert-block alert-danger fade in">
+                                                    <button class="btn btn-lg btn-login btn-block" type="submit">登录</button>
+                                                    <p class="msg"></p>
+                                                    {% if msg %}
+                                                        <div class="alert alert-block alert-danger fade in">
                   <button data-dismiss="alert" class="close close-sm" type="button">
                       <i class="icon-remove"></i>
                   </button>
                   <strong>提醒!</strong> {{ msg }}
             </div>
-                 {% endif %}
+                                                    {% endif %}
+                                                </form>
+                                            </div><!-- end login-form -->
+                                        </div><!-- end widget -->
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+                            </div>
 
-            </div>
-          </form>
 
 {% endblock %}
+
 {% block load_js %}
         <script>
     get_captcha_img();
@@ -67,7 +88,3 @@
 
 </script>
 {% endblock %}
-
-
-
-

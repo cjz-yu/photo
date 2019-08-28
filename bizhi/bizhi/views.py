@@ -1,10 +1,9 @@
 import logging
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse,render
 
 # apis为settings中Logging配置中的loggers
 logger = logging.getLogger('apis')
 
 
-def logtest(request):
-    logger.info("欢迎访问")
-    return HttpResponse('日志测试')
+def test(request):
+    return render(request,'index1.html')

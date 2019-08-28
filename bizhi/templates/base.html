@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -16,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-
+{% block load_css %}
     <!-- FAVICONS -->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
@@ -42,7 +43,7 @@
     <!--[if IE]>
     <script src="{% static 'http://html5shiv.googlecode.com/svn/trunk/html5.js' %}></script>
     <![endif]-->
-
+{% endblock %}
 </head>
 <body>
 
@@ -131,7 +132,7 @@
                                                                 <div class="box">
                                                                     <h5>User Profile</h5>
                                                                     <ul>
-                                                                        <li><a href="{% static 'edit-account.html' %}">修改资料</a></li>
+                                                                        <li><a href="{% url "uc:edit_account" %}">修改资料</a></li>
                                                                         <li><a href="{% static 'public-profile.html' %}">公共配置文件</a></li>
                                                                         <li><a href="{% static 'upload-item.html' %}">上传图片</a></li>
                                                                         <li><a href="{% static 'downloads.html' %}">下载</a></li>
@@ -149,10 +150,11 @@
                                         </ul>
                                         <ul class="nav navbar-nav navbar-right">
                                             <li class="dropdown membermenu hovermenu">
-                                                <a href="{% static '#' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'upload/member.png' %}" alt="" class="img-circle"> <span class="caret"></span></a>
+                                                <a href="{% static '#' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{ user.avator_sor }}" alt="" class="img-circle"> <span class="caret"></span></a>
                                                 <ul class="dropdown-menu">
                                                     <li class="dropdown-header">简况</li>
-                                                    <li><a href="{% static 'edit-account.html' %}">修改资料</a></li>
+                                                    <li><a href="{% url "uc:edit_account" %}">修改资料</a></li>
+                                                    <li><a href="{% url "uc:edit_account" %}">更改密码</a></li>
                                                     <li><a href="http://127.0.0.1:8000/accounts/logout/">退出登录</a></li>
                                                     <li><hr></li>
                                                     <li class="dropdown-header">卖家状态一览表</li>
@@ -178,8 +180,8 @@
                 <div class="page-title public-profile-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>目录市场</h3>
-                            <p>数百个PSD模板，移动应用， UI & 材料元素!你自己上传的 <br> 手工制作的数码产品，有偿!</p>
+                            <h3>欢迎来到三创壁纸网站</h3>
+                            <p>一个专注于分享，交流壁纸的网站 <br> 上传图片还有报酬哦！！！</p>
                             <a href="{% static '#' %}" class="followbtn">新建商店</a> <span>-</span> <a href="{% static '#' %}" class="followbtn">上传</a> <span>-</span> <a href="{% static '#' %}" class="followbtn">Earn Money</a>
                         </div>
                     </div>
@@ -217,10 +219,12 @@
     </div><!-- end wrapper -->
     <!-- END SITE -->
 
+</body>
+</html>
+
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
 {% block load_js %}
 {% endblock %}
-</body>
-</html>

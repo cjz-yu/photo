@@ -1,362 +1,132 @@
-<!DOCTYPE html>
-{% load static %}
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- SITE META -->
-    <title>Catalog | 定制属于你的模板</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-
-    <!-- FAVICONS -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
-    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'images/apple-touch-icon-57x57.png' %}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/apple-touch-icon-72x72.png' %}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/apple-touch-icon-76x76.png' %}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/apple-touch-icon-114x114.png' %}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/apple-touch-icon-120x120.png' %}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'images/apple-touch-icon-144x144.png' %}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/apple-touch-icon-152x152.png' %}">
-
-    <!-- TEMPLATE STYLES -->
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block load_css %}
+{#    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="/static/css/amazeui.min.css">
+    <link rel="stylesheet" href="/static/css/amazeui.cropper.css">
+    <link rel="stylesheet" href="/static/css/custom_up_img.css">
+    <style type="text/css">
+        .up-img-cover {width: 100px;height: 100px;}
+        .up-img-cover img{width: 100%;}
+    </style>
+{% endblock %}
 
-    <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/prettyPhoto.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
 
-    <!--[if IE]>
-    <script src="{% static 'http://html5shiv.googlecode.com/svn/trunk/html5.js' %}></script>
-    <![endif]-->
-
-</head>
-<body>
-
-    <!-- START SITE -->
-    <div id="wrapper">
-        <nav class="hidden-xs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-            <h3><i class="fa fa-star-o"></i> 我的收藏</h3>
-            <ul>
-                <li>
-                    <img src="{% static 'upload/item_01.jpg' %}" alt="" class="alignleft img-responsive">
-                    <h4><a href="{% static 'single-item.html' %}"> 用户配置文件</a></h4>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 221</a></small>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 05</a></small>
-                </li>
-                <li>
-                    <img src="{% static 'upload/item_02.jpg' %}" alt="" class="alignleft img-responsive">
-                    <h4><a href="{% static 'single-item.html' %}">邮箱申请</a></h4>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 435</a></small>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 13</a></small>
-                </li>
-                <li>
-                    <img src="{% static 'upload/item_03.jpg' %}" alt="" class="alignleft img-responsive">
-                    <h4><a href="{% static 'single-item.html' %}">展示播客</a></h4>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 551</a></small>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 12</a></small>
-                </li>
-                <li>
-                    <img src="{% static 'upload/item_04.jpg' %}" alt="" class="alignleft img-responsive">
-                    <h4><a href="{% static 'single-item.html' %}">登录框(自定义)</a></h4>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-eye"></i> 412</a></small>
-                    <small><a href="{% static 'single-item.html' %}"><i class="fa fa-comment-o"></i> 55</a></small>
-                </li>
-            </ul>
-        </nav>
-
-        <header class="header">
-            <div class="container-menu">
-                <nav class="navbar navbar-default yamm">
-                    <div class="container">
-                        <div class="navbar-table">
-                            <div class="navbar-cell">
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="{% static 'index.html' %}"><i class="fa fa-hashtag"></i> 目录</a>
-                                    <div class="open-menu">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                                            <span class="sr-only">切换导航</span>
-                                            <span class="fa fa-bars"></span>
-                                        </button>
-                                    </div>
-                                </div><!-- end navbar-header -->
-                            </div><!-- end navbar-cell -->
-                            <div class="navbar-cell stretch">
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                                    <div class="navbar-cell">
-                                        <ul class="nav navbar-nav navbar-center">
-                                            <li><a class="active" href="{% static 'index.html' %}" title="">主页</a></li>
-                                            <li class="dropdown megamenu yamm-half hovermenu"><a href="{% static '#' %}" data-toggle="dropdown" class="dropdown-toggle">特征 <b class="fa fa-angle-down"></b></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                    <div class="yamm-content">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-sm-6">
-                                                                <div class="box">
-                                                                    <ul>
-                                                                        <li><a href="{% static 'page-404.html' %}">404 - 页面找不到</a></li>
-                                                                        <li><a href="{% static 'login.html' %}">登录 & 注册</a></li>
-                                                                        <li><a href="{% static 'faqs.html' %}">FAQS & 支持</a></li>
-                                                                        <li><a href="{% static 'about.html' %}">关于我们</a></li>
-                                                                        <li><a href="{% static 'about.html' %}">关于我们</a></li>
-                                                                        <li><a href="{% static 'contact.html' %}">联系我们</a></li>
-                                                                    </ul>
-                                                                </div><!-- end box -->
-                                                            </div><!-- end col -->
-                                                        </div>
-                                                    </div><!-- end ttmenu-content -->
-                                                    </li>
-                                                </ul>
-                                            </li><!-- end mega menu -->
-                                            <li class="dropdown megamenu yamm-half hovermenu"><a href="{% static '#' %}" data-toggle="dropdown" class="dropdown-toggle">Market <b class="fa fa-angle-down"></b></a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                    <div class="yamm-content">
-                                                        <div class="row">
-
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="box">
-                                                                    <h5>User Profile</h5>
-                                                                    <ul>
-                                                                        <li><a href="{% static 'edit-account.html' %}">修改资料</a></li>
-                                                                        <li><a href="{% static 'public-profile.html' %}">公共配置文件</a></li>
-                                                                        <li><a href="{% static 'upload-item.html' %}">上传图片</a></li>
-                                                                        <li><a href="{% static 'downloads.html' %}">下载</a></li>
-                                                                        <li><a href="{% static 'login.html' %}">登录 & 注册</a></li>
-                                                                    </ul>
-                                                                </div><!-- end box -->
-                                                            </div><!-- end col -->
-                                                        </div>
-                                                    </div><!-- end ttmenu-content -->
-                                                    </li>
-                                                </ul>
-                                            </li><!-- end mega menu -->
-                                            <li><a href="{% static 'forum.html' %}" title="">评论</a></li>
-                                            <li><a href="{% static 'contact.html' %}" title="">联系</a></li>
-                                        </ul>
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <li class="dropdown membermenu hovermenu">
-                                                <a href="{% static '#' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'upload/member.png' %}" alt="" class="img-circle"> <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li class="dropdown-header">简况</li>
-                                                    <li><a href="{% static 'edit-account.html' %}">修改资料</a></li>
-                                                    <li><a href="{% static '#' %}">退出登录</a></li>
-                                                    <li><hr></li>
-                                                    <li class="dropdown-header">卖家状态一览表</li>
-                                                    <li><a href="{% static 'public-profile.html' %}">公共配置</a></li>
-                                                    <li><a href="{% static 'sales.html' %}">我的销售</a></li>
-                                                    <li><a href="{% static 'messages.html' %}">留言板</a></li>
-                                                    <li><a href="{% static 'upload-item.html' %}">上传商品</a></li>
-                                                    <li><a href="{% static 'downloads.html' %}">下载</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end navbar-cell -->
-                                </div><!-- /.navbar-collapse -->
-                            </div><!-- end navbar cell -->
-                        </div><!-- end navbar-table -->
-                    </div><!-- end container fluid -->
-                </nav><!-- end navbar -->
-            </div><!-- end container -->
-        </header>
-
-        <section class="section single-wrap">
-            <div class="container">
-                <div class="page-title public-profile-title">
+{% block content %}
+{#<div class="content boxs">#}
+                    <div class="widget-title"style="margin-top: -300px">
+                                <h4>资料详情</h4>
+                            </div><!-- end widget-title -->
+                            <hr/>
                     <div class="row">
-                        <div class="col-sx-12 text-center">
-                            <h3>目录市场</h3>
-                            <p>数百个PSD模板，移动应用， UI & 材料元素!你自己上传的 <br> 手工制作的数码产品，有偿!</p>
-                            <a href="{% static '#' %}" class="followbtn">新建商店</a> <span>-</span> <a href="{% static '#' %}" class="followbtn">上传</a> <span>-</span> <a href="{% static '#' %}" class="followbtn">Earn Money</a>
-                        </div>
+                        <div class="col-md-3">
+                    <div class="up-img-cover"  id="up-img-touch" >
+                        <img class="am-circle" alt="点击图片上传" src="{{ user.avator_sor }}" data-am-popover="{content: '点击上传', trigger: 'hover focus'}" >
                     </div>
-                </div>
-                {% block content %}
-
-                <div class="content-before">
-                    <div class="row">
-                        <div class="col-md-6 col-sx-12 cen-xs">
-                            <form class="dropForm">
-                                <div class="input-prepend">
-                                    <input type="text" class="form-control" placeholder="Search anything here.">
-                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div><!-- end row -->
-                </div><!-- end content before -->
-
-                <div class="content boxs">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="widget-title">
-                                <h4>Profile Details</h4>
-                            </div><!-- end widget-title -->
-                            <form class="uploaditem">
+                    <div><a style="text-align: center; display: block;"  id="pic"></a></div>
+                  </div>
+                        <div class="col-md-7">
+                            <form class="uploaditem" method="post">
+                                {% csrf_token %}
                                 <div class="space">
-                                    <label>Upload Avatar</label>
-                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                        <div class="fileupload-preview thumbnail"></div>
-                                        <br>
-                                        <span class="btn btn-primary btn-file">
-                                            <span class="fileupload-new">Select Avatar</span>
-                                            <span class="fileupload-exists">Change</span>
-                                            <input type="file">
-                                        </span>
-                                        <a href="#" class="btn btn-primary fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                    </div>
+                                    <label>用户名 </label>
+                                   <input name="username" type="text" class="form-control" id="inputUserName" value="{{ user.username }}"  required>
                                 </div>
 
                                 <div class="space">
-                                    <label>First / Last Name : </label>
-                                    <input type="text" class="form-control" placeholder="Enter your name">
+                                    <label>手机号码 </label>
+                                     <input name="mobile" type="tel" class="form-control" id="inputTel" value="{{ user.mobile }}"  required>
                                 </div>
 
                                 <div class="space">
-                                    <label>Store / Username : </label>
-                                    <input type="text" class="form-control" placeholder="Enter your store name">
+                                    <label>邮箱</label>
+                                     <input name="email" type="email" class="form-control" id="inputEmail" value="{{ user.email }}"  required>
                                 </div>
 
                                 <div class="space">
-                                    <label>Email : </label>
-                                    <input type="text" class="form-control" placeholder="Enter your email">
+                                    <label>qq </label>
+                                     <input name="qq" type="text" class="form-control" id="inputQQ" value="{{ user.qq }}"  minlength="5" required>
                                 </div>
 
+{#                                <div class="space">#}
+{#                                    <label>商品描述 </label>#}
+{#                                    <textarea class="form-control" placeholder="Add your store description here.."></textarea>#}
+{#                                </div>#}
                                 <div class="space">
-                                    <label>Location : </label>
-                                    <input type="text" class="form-control" placeholder="Ex: America">
-                                </div>
-
-                                <div class="space">
-                                    <label>Website : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Store Description : </label>
-                                    <textarea class="form-control" placeholder="Add your store description here.."></textarea>
-                                </div>
-
-                                <div class="space">
-                                    <label>PayPal Email : </label>
-                                    <input type="text" class="form-control" placeholder="yourname@youremail.com">
-                                </div>
-
-                                <div class="space">
-                                    <a href="#" class="btn btn-primary">Update Profile</a>
+                                   <button type="submit" class="btn btn-danger">提交</button>
                                 </div>
                             </form>
                         </div><!-- end col -->
-
-                        <div class="col-md-4">
-                            <div class="widget-title">
-                                <h4>Social Profiles</h4>
-                            </div><!-- end widget-title -->
-                            <form class="uploaditem">
-                                <div class="space">
-                                    <label>Facebook : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Twitter : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Google Plus : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Pinterest : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Behance : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Dribbble : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Devianart : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Myspace : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Youtube : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-
-                                <div class="space">
-                                    <label>Linkedin : </label>
-                                    <input type="text" class="form-control" placeholder="http://">
-                                </div>
-                                <div class="space">
-                                    <a href="#" class="btn btn-primary btn-block">Update Social Links</a>
-                                </div>
-                            </form>
-                        </div><!-- end col -->
-
                     </div><!-- end row -->
                 </div><!-- end content -->
-                {% endblock %}
-            </div><!-- end container -->
-        </section>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-5">
-                        <div class="media cen-xs">
-                            <p>
-                                &copy; 目录 INC. 2019 - 所有权利归Jack解释.<br>
-                                Idea by <a class="madeby" href="{% static 'http://www.17sucai.com' %}">Show WP</a> made with <i class="fa fa-heart"></i> coded with <i class="fa fa-html5"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-7">
-                        <ul class="list-inline text-right cen-xs">
-                            <li><a href="{% static '#' %}">首页</a></li>
-                            <li><a href="{% static '#' %}">网站上</a></li>
-                            <li><a href="{% static '#' %}">版权</a></li>
-                            <li><a href="{% static '#' %}">执照</a></li>
-                            <li><a href="{% static '#' %}">法律</a></li>
-                            <li><a class="topbutton" href="{% static '#' %}">返回顶部 <i class="fa fa-angle-up"></i></a></li>
-                        </ul>
-                    </div>
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </footer><!-- end footer -->
-    </div><!-- end wrapper -->
-    <!-- END SITE -->
 
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
 
-</body>
-</html>
+
+<div class="am-modal am-modal-no-btn up-frame-bj " tabindex="-1" id="doc-modal-1">
+  <div class="am-modal-dialog up-frame-parent up-frame-radius">
+    <div class="am-modal-hd up-frame-header">
+       <label>修改头像</label>
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd  up-frame-body">
+      <div class="am-g am-fl">
+        <div class="am-form-group am-form-file">
+          <div class="am-fl">
+            <button type="button" class="am-btn am-btn-default am-btn-sm">
+              <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+          </div>
+          <input type="file" id="inputImage">
+        </div>
+      </div>
+      <div class="am-g am-fl" >
+        <div class="up-pre-before up-frame-radius">
+            <img alt="" src="" id="image" >
+        </div>
+        <div class="up-pre-after up-frame-radius">
+        </div>
+      </div>
+      <div class="am-g am-fl">
+        <div class="up-control-btns">
+            <span class="am-icon-rotate-left"  onclick="rotateimgleft()"></span>
+            <span class="am-icon-rotate-right" onClick="rotateimgright()"></span>
+            <span class="am-icon-check" id="up-btn-ok" url="{% url 'apis:change_avator' %}"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--加载框-->
+<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">正在上传...</div>
+    <div class="am-modal-bd">
+      <span class="am-icon-spinner am-icon-spin"></span>
+    </div>
+  </div>
+</div>
+
+<!--警告框-->
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">信息</div>
+    <div class="am-modal-bd"  id="alert_content">
+          成功了
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn">确定</span>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block load_js %}
+    <script src="/static/js/amazeui.min.js" charset="utf-8"></script>
+    <script src="/static/js/cropper.min.js" charset="utf-8"></script>
+    <script src="/static/js/custom.js" charset="utf-8"></script>
+    <script src="/static/js/custom_up_img.js" charset="utf-8"></script>
+{% endblock %}

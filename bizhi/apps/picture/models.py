@@ -13,6 +13,8 @@ class Category(models.Model):
 
 class Picture(models.Model):
     picture_url = models.CharField(max_length=100,verbose_name="图片地址")
+    photo_url = models.CharField(max_length=100,verbose_name="图片本地地址")
+
     picture_name = models.CharField(max_length=100,verbose_name="图片名字", null=True)
     category = models.ManyToManyField(Category, verbose_name="所属分类",null=True)
     contributor = models.ForeignKey(User, verbose_name="贡献者", null=True)

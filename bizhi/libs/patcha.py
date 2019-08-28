@@ -1,6 +1,6 @@
 import random
 import os
-# from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from bizhi.settings import FontPath
 
 _letter_cases = "abcdefghjkmnpqrstuvwxy"  # 小写字母，去除可能干扰的i，l，o，z

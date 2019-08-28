@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.apis',
     'apps.picture',
+    'apps.usercenter',
 ]
 
 MIDDLEWARE = [
@@ -250,7 +251,10 @@ CACHES = {
         },
     },
 }
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if not os.path.exists(MEDIA_ROOT):
+    os.mkdir(MEDIA_ROOT)
+MEDIA_URL = '/media/'
 # # 以下配置可参考，在settings自定义配置项，方便统一管理
 # REDIS_TIMEOUT=7*24*60*60
 # CUBES_REDIS_TIMEOUT=60*60

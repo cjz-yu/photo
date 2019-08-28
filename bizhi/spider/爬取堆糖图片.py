@@ -7,7 +7,7 @@ from apps.accounts.models import User
 import json
 import requests,time
 url="https://www.duitang.com/napi/blog/list/by_search/?kw={}&type=feed&include_fields=top_comments,is_root,source_link,item,buyable,root_id,status,like_count,like_id,sender,album,reply_count,favorite_blog_id&_type=&start={}&_=1537966313841"
-lamb = "女生"
+lamb = "民谣"
 for index in range(0,240,24):
     #print(index)
     u = url.format(lamb,index)

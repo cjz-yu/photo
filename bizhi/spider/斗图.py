@@ -2,13 +2,11 @@ import os
 import django
 
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_web.settings")  # website可以更改为自己的项目名称
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bizhi.settings")  # website可以更改为自己的项目名称
 django.setup()
 import requests
 import random
 from bs4 import BeautifulSoup
-
-
 def set_conf():
     header_list = [
         # 遨游

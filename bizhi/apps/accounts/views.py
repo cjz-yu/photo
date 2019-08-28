@@ -23,22 +23,22 @@ class Login(View):
             username = form.cleaned_data["username"]
             captcha = form.cleaned_data["captcha"]
             session_captcha_code = request.session.get("captcha_code", "")
-            # logger.debug(f"登录提交验证码:{captcha}-{session_captcha_code}")
+            logger.debug(f"登录提交验证码:{captcha}-{session_captcha_code}")
             # 验证码一致
-            print(captcha.lower(), session_captcha_code.lower())
+            # print(captcha.lower(), session_captcha_code.lower())
             if captcha.lower() == session_captcha_code.lower():
                 user, flag = form.check_password()
                 # user = auth.authenticate(username=username, password=password)
                 if flag and user and user.is_active:
                     auth.login(request, user)
-                    # logger.info(f"{user.username}登录成功")
+                    logger.info(f"{user.username}登录成功")
                     # 跳转到next
                     return redirect(request.session.get("next", '/'))
                 msg = "用户名或密码错误"
-                # logger.error(f"{username}登录失败, 用户名或密码错误")
+                logger.error(f"{username}登录失败, 用户名或密码错误")
             else:
                 msg = "验证码错误"
-                # logger.error(f"{username}登录失败, 验证码错误")
+                logger.error(f"{username}登录失败, 验证码错误")
         else:
             msg = "表单数据不完整"
             print(form.errors)
@@ -89,10 +89,12 @@ class Register(View):
                 ret['msg'] = form.errors
             logger.debug(f"用户注册结果：{ret}")
         return JsonResponse(ret)
-# def register(request):
-#     return render(request,'register.html')
+from django.contrib.auth.decorators import login_required
+@login_required()
 def index(request):
-    return render(request,'index.html')
+    return redirect(reverse("picture:show"))
+
 def logout(request):
     auth.logout(request)
     return redirect(reverse("accounts:login"))
+from django.contrib.auth.decorators import login_required

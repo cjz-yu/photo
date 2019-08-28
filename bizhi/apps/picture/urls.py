@@ -4,5 +4,7 @@ from . import views
 from django.views.generic import TemplateView
 urlpatterns = [
 
-    url(r'^', views.listing),
+    url(r'^', views.Picutuelist.as_view(),name="show"),
+
+
 ]
