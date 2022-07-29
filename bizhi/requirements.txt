@@ -45,7 +45,7 @@ kombu==3.0.37
 mailer==0.8.1
 MarkupSafe==1.1.1
 mccabe==0.6.1
-mistune==0.8.4
+mistune==2.0.3
 mysql-connector==2.2.9
 nbconvert==5.4.1
 nbformat==4.4.0
